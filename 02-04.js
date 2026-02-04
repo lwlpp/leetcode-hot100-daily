@@ -1,10 +1,13 @@
 //1
+//贪心
+题目：
 //https://leetcode.cn/problems/partition-labels/description/?envType=study-plan-v2&envId=top-100-liked
 //划分字母区间
 //给你一个字符串 s 。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。
 //例如，字符串 "ababcc" 能够被分为 ["abab", "cc"]，但类似 ["aba", "bcc"] 或 ["ab", "ab", "cc"] 的划分是非法的。
-
+思路：
 //记录26个字母的最后出现位置，遍历串，一边遍历一遍更新当前段的最远端，达到最远端就是想要的当前串
+代码：
 var partitionLabels = function(s) {
     let last = new Array(26).fill(0);
     for(let i=0;i<s.length;i++){
@@ -25,7 +28,16 @@ var partitionLabels = function(s) {
 
 
 //2
+//链表
+题目：
 //https://leetcode.cn/problems/copy-list-with-random-pointer/?envType=study-plan-v2&envId=top-100-liked
+//随机链表的深拷贝
+//如果原链表中有 X 和 Y 两个节点，其中 X.random --> Y 。
+//那么在复制链表中对应的两个节点 x 和 y ，同样有 x.random --> y 。
+思路：
+//1→1′→2→2′→3→3′
+//插入新节点，random就是原节点的random的后一个
+代码：
 /**
  * // Definition for a _Node.
  * function _Node(val, next, random) {
@@ -38,7 +50,6 @@ var partitionLabels = function(s) {
  * @param {_Node} head
  * @return {_Node}
  */
- //1→1′→2→2′→3→3′
 var copyRandomList = function(head) {
     //新的交错链表
     let cur=head;
@@ -64,4 +75,5 @@ var copyRandomList = function(head) {
     }
     return ans.next;
 };
+
 
